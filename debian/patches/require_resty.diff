@@ -1,0 +1,26 @@
+Description: Workaround for require resty renamed nginx
+Forwarded: not-needed
+Author: Laurent Arnoud <laurent@spkdev.net>
+
+--- a/lib/resty/websocket/client.lua
++++ b/lib/resty/websocket/client.lua
+@@ -5,7 +5,7 @@
+ --        the websocket server.
+ 
+ 
+-local wbproto = require "resty.websocket.protocol"
++local wbproto = require "nginx.websocket.protocol"
+ local bit = require "bit"
+ 
+ 
+--- a/lib/resty/websocket/server.lua
++++ b/lib/resty/websocket/server.lua
+@@ -2,7 +2,7 @@
+ 
+ 
+ local bit = require "bit"
+-local wbproto = require "resty.websocket.protocol"
++local wbproto = require "nginx.websocket.protocol"
+ 
+ local new_tab = wbproto.new_tab
+ local _recv_frame = wbproto.recv_frame

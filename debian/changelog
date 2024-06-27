@@ -1,5 +1,40 @@
-template-repository (1.0-1) unstable; urgency=medium
+lua-nginx-websocket (0.08-1) unstable; urgency=medium
 
-  * Initial release
+  * Update uscan watch to detect rc.
+  * New upstream version 0.08.
+  * Remove trailing white space.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Laurent Arnoud <laurent@spkdev.net>  Wed, 13 Jan 2021 20:38:24 +0100
+
+lua-nginx-websocket (0.07-1) unstable; urgency=medium
+
+  * debian/control: Update Standards-Version to 3.9.8.
+  * New upstream version 0.07.
+  * debian/control: Update Standards-Version to 4.5.0.
+  * debian/control: Set debhelper-compat to version 12.
+  * debian/control: Update Vcs tags.
+
+ -- Laurent Arnoud <laurent@spkdev.net>  Mon, 12 Oct 2020 12:04:16 +0200
+
+lua-nginx-websocket (0.06-1) unstable; urgency=medium
+
+  * Imported Upstream version 0.06.
+  * debian/watch: Use github tags' tarballs paths.
+
+ -- Laurent Arnoud <laurent@spkdev.net>  Thu, 08 Dec 2016 20:15:13 +0100
+
+lua-nginx-websocket (0.05-1) unstable; urgency=medium
+
+  * Imported Upstream version 0.05.
+  * debian/control: Added Vcs tags.
+  * debian/control: Remove unrequired dependency on lua-bitop.
+  * debian/control: Update Standards-Version to 3.9.6.
+  * debian/copyright: Fix invalid short name in dep5.
+
+ -- Laurent Arnoud <laurent@spkdev.net>  Fri, 23 Jan 2015 16:30:12 +0100
+
+lua-nginx-websocket (0.04-1) unstable; urgency=low
+
+  * Initial release. (Closes: #757158)
+
+ -- Laurent Arnoud <laurent@spkdev.net>  Tue, 05 Aug 2014 21:09:10 +0200

@@ -1,0 +1,79 @@
+2014-04-11  Yichun Zhang (agentzh) <agentzh@gmail.com>
+
+  * README.markdown, lib/resty/websocket/client.lua,
+  lib/resty/websocket/protocol.lua, lib/resty/websocket/server.lua: bumped
+  version to 0.03; also updated the copyright notice in source files and docs.
+
+2013-12-05  Yichun Zhang (agentzh) <agentzh@gmail.com>
+
+  * t/count.t, t/cs.t, t/sanity.t: use Test::Nginx::Socket::Lua instead of
+  Test::Nginx::Socket in our test suite so that we can run existing tests with
+  lua-resty-core.
+
+2013-10-13  Yichun Zhang (agentzh) <agentzh@gmail.com>
+
+  * lib/resty/websocket/client.lua, lib/resty/websocket/protocol.lua,
+  lib/resty/websocket/server.lua: optimize: use LuaJIT 2.1's table.new() to
+  preallocate space for our Lua module tables, reducing module loading time a
+  little.
+
+2013-09-14  Yichun Zhang (agentzh) <agentzh@gmail.com>
+
+  * README.markdown, lib/resty/websocket/client.lua, t/cs.t: feature: added the
+  "close" method to resty.websocket.client.
+
+  * README.markdown, lib/resty/websocket/client.lua,
+  lib/resty/websocket/protocol.lua, t/cs.t: added (passing) tests for the
+  "send_masked" option and "send_unmasked" option, respectively.
+
+  * README.markdown, lib/resty/websocket/client.lua, t/cs.t: feature:
+  resty.websocket.client: added the "pool" option to the connect() method. also
+  added new method set_keepalive() for connection pooling.
+
+  * README.markdown, lib/resty/websocket/client.lua,
+  lib/resty/websocket/protocol.lua, lib/resty/websocket/server.lua, t/cs.t:
+  feature: added the "timeout" option to the constructor for both the server
+  and the client objects. also local-ize built-in Lua functions used in the Lua
+  modules.
+
+  * README.markdown, lib/resty/websocket/client.lua,
+  lib/resty/websocket/server.lua, t/cs.t: feature: added the set_timeout method
+  to resty.websocket.server and resty.websocket.client.
+
+2013-09-13  Yichun Zhang (agentzh) <agentzh@gmail.com>
+
+  * lib/resty/websocket/server.lua, t/sanity.t: cleared the Content-Type
+  response header in the websocket handshake response.
+
+  * lib/resty/websocket/server.lua, t/sanity.t: bugfix: server rejected the
+  Firefox websocket handshake request due to the "Connection: keep-alive,
+  Upgrade" request header.
+
+  * .gitignore, lib/resty/websocket/client.lua,
+  lib/resty/websocket/protocol.lua, lib/resty/websocket/server.lua, t/cs.t,
+  t/sanity.t: added module resty.websocket.client which is still quite rough.
+  also fixed various issues and added a lot of features.
+
+2013-09-10  Yichun Zhang (agentzh) <agentzh@gmail.com>
+
+  * lib/resty/websocket/server.lua, t/sanity.t: feature: recv_frame(): if a
+  fragmented data frame with the FIN bit unset is received, the 3rd return
+  value will be "again".
+
+  * lib/resty/websocket/server.lua, t/sanity.t: feature: added the
+  "max_payload_len" option to the new() method to control the maximal payload
+  size that we handle.
+
+  * lib/resty/websocket/server.lua, t/sanity.t: recv_frame(): now for "close"
+  frames, the 1st return value is the message string and the 3rd return value
+  is the status code. added a passing test for receiving "ping" frames.
+
+  * lib/resty/websocket/server.lua, t/sanity.t: minor code refactoring and test
+  plan fixes.
+
+  * lib/resty/websocket/server.lua, t/sanity.t: renamed the read_msg method to
+  recv_frame. also added support for receiving the "close" frames.
+
+  * .gitignore, README.markdown, lib/resty/websocket/server.lua, t/sanity.t,
+  valgrind.suppress: initial checkin: handshake and reading unfragmented
+  text/binary data messages now work.
